@@ -284,7 +284,7 @@
             
             <div class="my-6">
                 <p class="text-xl text-gray-800 font-bold">نقر بكل فخر واعتزاز بأن البطل:</p>
-                <p class="text-lg text-gray-600 italic">Nous certifions avec fierté que le champion :</p>
+                <p class="text-lg text-gray-600 italic">Nous certifions with fierté que le champion :</p>
                 
                 <h2 id="winner-name-display" class="text-5xl font-black my-6 text-black border-b-4 border-gray-400 inline-block px-14 uppercase tracking-wider leading-tight">USERNAME</h2>
             </div>
@@ -324,7 +324,7 @@
 
     <script>
         const questions = [
-            { q: "عاصمة فرنسا؟", a: ["ليون", "باريس", "مارسيليا", "نيس"], c: 1 },
+            { q: "عاصمة فرنسا؟", a: ["الشرقية", "باريس", "منيا القمح", "ليون"], c: 1 },
             { q: "أسماء أولاد مينا مكارم؟", a: ["Joseph, Marie-Hélène et Benjamin", "Joseph, Celine et Benjamin", "Georges, Benjamin et Marie-Hélène", "Hillary Clinton, Joseph et Benjamin"], c: 0 },
             { q: "أم القديس أغسطينوس؟", a: ["جيسيكا", "هايدي", "مونيكا", "ماريا"], c: 2 },
             { q: "مارمرقس زار مصر كم مرة؟", a: ["مرة واحدة", "مرتين", "3 مرات", "5 مرات"], c: 1 },
@@ -386,7 +386,6 @@
         }
 
         function handleTimeout() {
-            // Sabet 3al zero, no action taken as per request
             document.getElementById("feedback-msg").innerHTML = "<span class='text-yellow-500 animate-pulse'>انتهى الوقت! فكر في الإجابة..</span>";
         }
 
@@ -437,8 +436,8 @@
                 btn.classList.add("wrong");
                 playAudio(false);
                 setTimeout(() => { 
-                    btn.classList.add("hidden-answer"); // BT7ZF EL EGBA UNTIL ENNO AGAWA SA7
-                    isProcessing = false; // Allow next try
+                    btn.classList.add("hidden-answer"); 
+                    isProcessing = false; 
                 }, 800);
             }
         }

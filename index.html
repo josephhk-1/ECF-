@@ -386,12 +386,8 @@
         }
 
         function handleTimeout() {
-            if (isProcessing) return;
-            isProcessing = true;
-            document.getElementById("feedback-msg").innerHTML = "<span class='text-red-500 animate-pulse'>انتهى الوقت! لقد خسرت..</span>";
-            const correctIdx = questions[currentQ].c;
-            document.querySelectorAll(".answer-btn")[correctIdx]?.classList.add("correct");
-            setTimeout(() => location.reload(), 2000);
+            // Sabet 3al zero, no action taken as per request
+            document.getElementById("feedback-msg").innerHTML = "<span class='text-yellow-500 animate-pulse'>انتهى الوقت! فكر في الإجابة..</span>";
         }
 
         function loadQuestion() {
@@ -424,10 +420,14 @@
         async function selectAnswer(idx, btn) {
             if (isProcessing) return;
             isProcessing = true;
-            clearInterval(timerInterval);
+            
+            const correctIdx = questions[currentQ].c;
             btn.classList.add("thinking");
-            await new Promise(r => setTimeout(r, 1500));
-            if (idx === questions[currentQ].c) {
+            
+            await new Promise(r => setTimeout(r, 1200));
+
+            if (idx === correctIdx) {
+                clearInterval(timerInterval);
                 btn.classList.remove("thinking");
                 btn.classList.add("correct");
                 playAudio(true);
@@ -437,9 +437,8 @@
                 btn.classList.add("wrong");
                 playAudio(false);
                 setTimeout(() => { 
-                    btn.classList.add("hidden-answer"); 
-                    document.querySelectorAll(".answer-btn")[questions[currentQ].c].classList.add("correct");
-                    setTimeout(() => location.reload(), 2000);
+                    btn.classList.add("hidden-answer"); // BT7ZF EL EGBA UNTIL ENNO AGAWA SA7
+                    isProcessing = false; // Allow next try
                 }, 800);
             }
         }
